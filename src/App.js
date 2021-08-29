@@ -4,7 +4,6 @@ import 'bootstrap/scss/bootstrap.scss';
 import StyledTableData from './components/StyledTdata';
 import { arrayMove } from 'react-sortable-hoc';
 import SortableList from './components/SortableList';
-import { useState } from 'react';
 
 const rows = [
   'מספר ת.ז',
