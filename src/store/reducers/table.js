@@ -32,11 +32,17 @@ const reducer = (state = initialState, action) => {
         targetObject: action.targetObject,
       };
     case actionTypes.UPDATE_LIST:
-      const draggingItemIndex = state.tableData[state.currentDragging.index];
-      const updatedData = [...state.tableData];
+      const updatedTable = [...state.tableData];
+      updatedTable[state.currentDragging.index][
+        state.currentDragging.keyValue
+      ] = updatedTable[state.targetObject.index][state.targetObject.keyValue];
+      updatedTable[state.targetObject.index][state.targetObject.keyValue] =
+        updatedTable[state.currentDragging.index][
+          state.currentDragging.keyValue
+        ];
       return {
         ...state,
-        tableData: [], //
+        tableData: updatedTable, //
       };
 
     default:

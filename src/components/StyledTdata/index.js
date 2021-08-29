@@ -9,9 +9,11 @@ const StyledTableData = ({ children, index, keyValue }) => {
     <td
       draggable
       onDragStart={() =>
-        dispatch(actions.onDragStart({ value: children, index,keyValue }))
+        dispatch(actions.onDragStart({ value: children, index, keyValue }))
       }
-      onDrop={() => dispatch(actions.onDragEnd({ value: children, index,keyValue }))}
+      onDragOver={() =>
+        dispatch(actions.onDragEnd({ value: children, index, keyValue }))
+      }
       onDragEnd={() => dispatch(actions.updateData())}
       style={{ background: '#F6F6F6', border: '2px solid white' }}>
       {children}
